@@ -28,10 +28,17 @@ numberButton.forEach((button) => {
         }
     });
 });
+let variable4 = variable1 + operator + variable2;
 
 operatorButton.forEach((button) => {
     button.addEventListener("click", () => {
-        operator = button.value;
+        if (variable2) {
+            variable1 = variable1 + operator + variable2;
+            operator = variable2 = "";
+        }
+        if (operator === "") {
+            operator = button.value;
+        }
     });
 });
 

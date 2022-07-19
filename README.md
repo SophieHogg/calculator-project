@@ -1,8 +1,8 @@
-I decided to base my calculator on this particular kids calculator as it seemed simple without being too antiquated or too boring. I removed the +- toggle and instead widened the AC button to ensure there were no blanks in the grid.
+I decided to base my calculator on this particular kids calculator as it seemed simple without being too antiquated or too boring. I removed the +- toggle and instead replaced it with the negative number (-) button.
 https://kidssearch.com/KidsCalculator.html
 
 My colour palettes for my websites are usually designed on Australian flora.
-I used this colour palette based on a banksia (since my first portfolio project has a colour palette based on gum trees)
+I used this colour palette based on a banksia. My portfolio project has a colour palette based on gum trees, and I wanted this to fit in with that with a similar theme without being too similar.
 https://i.pinimg.com/originals/41/b2/e9/41b2e9f8680d4a23bfde778cdca1e865.jpg
 
 The minimum dimensions for this website are 250 width x 600 height.

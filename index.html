@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Calculator</title>
+    </head>
+    <body class="calculator">
+        <h1 class="calculator__title">Calculator</h1>
+        <!-- align center -->
+        <div class="calculator__box">
+            <table>
+                <tr>
+                    <td colspan="4">
+                        <div
+                            id="button--result"
+                            class="calculator__box--result"
+                        >
+                            <p id="input"></p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input
+                            type="button"
+                            class="button calculator__box--clear"
+                            id="button--clear"
+                            value="AC"
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="button"
+                            class="button"
+                            id="button--bsp"
+                            value="←"
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="button"
+                            class="button"
+                            id="button--toggle"
+                            value="+-*/"
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="button"
+                            class="button"
+                            id="button--div"
+                            class="operator"
+                            value="/"
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input
+                            type="button"
+                            class="button number"
+                            id="button--1"
+                            value="1"
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="button"
+                            class="button number"
+                            id="button--2"
+                            value="2"
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="button"
+                            class="button number"
+                            id="button--3"
+                            value="3"
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="button"
+                            id="button--mult"
+                            class="button operator"
+                            value="*"
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input
+                            type="button"
+                            class="button number"
+                            id="button--4"
+                            value="4"
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="button"
+                            class="button number"
+                            id="button--5"
+                            value="5"
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="button"
+                            class="button number"
+                            id="button--6"
+                            value="6"
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="button"
+                            id="button--minus"
+                            class="button operator"
+                            value="-"
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input
+                            type="button"
+                            class="button number"
+                            id="button--7"
+                            value="7"
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="button"
+                            class="button number"
+                            id="button--8"
+                            value="8"
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="button"
+                            class="button number"
+                            id="button--9"
+                            value="9"
+                        />
+                    </td>
+                    <td>
+                        <input
+                            type="button"
+                            class="button operator"
+                            id="button--plus"
+                            value="+"
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input
+                            type="button"
+                            class="button number"
+                            id="button--0"
+                            value="0"
+                        />
+                    </td>
+                    <td>
+                        <input type="button" id="button--dec" value="." />
+                    </td>
+                    <td colspan="2">
+                        <input
+                            type="button"
+                            class="button calculator__box--equals"
+                            id="button--equals"
+                            value="="
+                        />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+    <script type="module" src="./script.js"></script>
+</html>

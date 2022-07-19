@@ -1,0 +1,85 @@
+@use "./partials/palette";
+@use "./partials/devices";
+
+input {
+    width: 150px;
+    height: 50px;
+    background-color: palette.$hover-colour;
+    margin: 5px;
+    border-radius: 10px;
+    border: 2px solid palette.$click-colour;
+    font-weight: bold;
+    @include devices.phone-s {
+        width: 50px;
+        margin: 1px;
+    }
+    @include devices.phone {
+        width: 60px;
+        margin: 1px;
+    }
+    @include devices.tablet {
+        width: 100px;
+        margin: 3px;
+    }
+
+    &:hover {
+        background-color: palette.$secondary-colour;
+        cursor: pointer;
+    }
+    &:active {
+        background-color: palette.$click-colour;
+        color: white;
+    }
+}
+
+.calculator {
+    width: 100%;
+    height: 100%;
+    background-color: palette.$background-colour-dark;
+    &__title {
+        text-align: center;
+        color: palette.$background-colour-darkest;
+        text-shadow: 1px 1px palette.$font-colour;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    &__box {
+        display: flex;
+        justify-content: center;
+        &--result {
+            background-color: white;
+            width: 650px;
+            height: 50px;
+            font-size: 50px;
+            font-family: "Courier New", Courier, monospace;
+            @include devices.phone-s {
+                width: 230px;
+                font-size: 40px;
+            }
+            @include devices.phone {
+                width: 300px;
+            }
+            @include devices.tablet {
+                width: 500px;
+            }
+            &:hover {
+                background-color: palette.$input-hover-colour;
+            }
+        }
+        &--equals {
+            width: 320px;
+            background-color: palette.$primary-colour;
+            @include devices.phone-s {
+                width: 110px;
+            }
+            @include devices.phone {
+                width: 150px;
+            }
+            @include devices.tablet {
+                width: 225px;
+            }
+        }
+        &--clear {
+            background-color: palette.$primary-colour;
+        }
+    }
+}

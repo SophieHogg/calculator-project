@@ -3,7 +3,6 @@ const inputElement = document.getElementById("button--result");
 const buttonEquals = document.getElementById("button--equals");
 const buttonClr = document.getElementById("button--clear");
 const buttonDec = document.getElementById("button--dec");
-const buttonToggle = document.getElementById("button--toggle");
 
 const addTextNodeToInput = (textNode) => {
     inputElement.textContent += textNode;
@@ -57,29 +56,8 @@ buttonDec.addEventListener("click", () => {
     }
 });
 
-const toggleFunction = (o) => {
-    switch (o) {
-        case "":
-            return (o = "");
-        case "+":
-            return (o = "-");
-            break;
-        case "-":
-            return (o = "*");
-            break;
-        case "*":
-            return (o = "/");
-            break;
-        case "/":
-            return (o = "+");
-            break;
-    }
-};
 //function that toggles operator from + to - to * to / to + when clicked
 
-buttonToggle.addEventListener("click", () => {
-    operator = toggleFunction(operator);
-});
 //enacting the operator toggling function and refreshing the display
 
 const calculateFunction = (a, b, o) => {

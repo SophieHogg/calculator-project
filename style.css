@@ -2,7 +2,7 @@ input {
   width: 150px;
   height: 50px;
   background-color: #ba604a;
-  margin: 5px;
+  margin: 2px;
   border-radius: 10px;
   border: 2px solid #4b0215;
   font-weight: bold;
@@ -22,7 +22,6 @@ input {
 @media only screen and (min-width: 500px) and (max-width: 700px) {
   input {
     width: 100px;
-    margin: 3px;
   }
 }
 input:hover {
@@ -69,31 +68,28 @@ input:active {
 }
 @media only screen and (min-width: 500px) and (max-width: 700px) {
   .calculator__box--result {
-    width: 500px;
+    width: 450px;
   }
 }
 .calculator__box--result:hover {
   background-color: lightgray;
 }
-.calculator__box--equals {
+.calculator__box--equals, .calculator__box--clear {
   width: 320px;
   background-color: #b85167;
 }
 @media only screen and (max-width: 350px) {
-  .calculator__box--equals {
+  .calculator__box--equals, .calculator__box--clear {
     width: 110px;
   }
 }
 @media only screen and (min-width: 350px) and (max-width: 500px) {
-  .calculator__box--equals {
+  .calculator__box--equals, .calculator__box--clear {
     width: 150px;
   }
 }
 @media only screen and (min-width: 500px) and (max-width: 700px) {
-  .calculator__box--equals {
+  .calculator__box--equals, .calculator__box--clear {
     width: 225px;
   }
-}
-.calculator__box--clear {
-  background-color: #b85167;
 }

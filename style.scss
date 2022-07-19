@@ -5,7 +5,7 @@ input {
     width: 150px;
     height: 50px;
     background-color: palette.$hover-colour;
-    margin: 5px;
+    margin: 2px;
     border-radius: 10px;
     border: 2px solid palette.$click-colour;
     font-weight: bold;
@@ -19,7 +19,6 @@ input {
     }
     @include devices.tablet {
         width: 100px;
-        margin: 3px;
     }
 
     &:hover {
@@ -59,13 +58,14 @@ input {
                 width: 300px;
             }
             @include devices.tablet {
-                width: 500px;
+                width: 450px;
             }
             &:hover {
                 background-color: palette.$input-hover-colour;
             }
         }
-        &--equals {
+        &--equals,
+        &--clear {
             width: 320px;
             background-color: palette.$primary-colour;
             @include devices.phone-s {
@@ -77,9 +77,6 @@ input {
             @include devices.tablet {
                 width: 225px;
             }
-        }
-        &--clear {
-            background-color: palette.$primary-colour;
         }
     }
 }

@@ -33,13 +33,39 @@ input {
 
 .calculator {
     width: 100%;
-    height: 100%;
+    height: 90%;
+    padding-top: 10%;
     background-color: palette.$background-colour-dark;
     &__title {
         text-align: center;
         color: palette.$background-colour-darkest;
-        text-shadow: 1px 1px palette.$font-colour;
+        text-shadow: 2px 2px palette.$font-colour;
+        max-width: 80%;
+        margin: auto;
         font-family: Arial, Helvetica, sans-serif;
+        font-size: 50px;
+        @include devices.phone-s {
+            font-size: 20px;
+            text-shadow: 1px 1px palette.$font-colour;
+        }
+        @include devices.phone {
+            font-size: 30px;
+            text-shadow: 1px 1px palette.$font-colour;
+        }
+        @include devices.tablet {
+            font-size: 40px;
+        }
+    }
+    &__subtitle {
+        font-family: Arial;
+        font-size: 15px;
+        color: palette.$font-colour;
+        text-align: center;
+        max-width: 80%;
+        margin: auto;
+        @include devices.phone-s {
+            font-size: 13px;
+        }
     }
     &__box {
         display: flex;
@@ -81,4 +107,31 @@ input {
             background-color: palette.$primary-colour;
         }
     }
+}
+p {
+    font-family: Arial;
+    font-size: 14px;
+    color: palette.$font-colour;
+    text-align: center;
+    max-width: 80%;
+    margin: auto;
+    @include devices.phone-s {
+        font-size: 12px;
+    }
+}
+footer {
+    padding-top: 40px;
+}
+a:link {
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    color: palette.$lightest-colour;
+}
+
+a:hover {
+    color: palette.$click-colour;
+}
+a:visited {
+    color: palette.$font-colour;
 }

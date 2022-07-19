@@ -5,11 +5,10 @@ My colour palettes for my websites are usually designed on Australian flora.
 I used this colour palette based on a banksia (since my first portfolio project has a colour palette based on gum trees)
 https://i.pinimg.com/originals/41/b2/e9/41b2e9f8680d4a23bfde778cdca1e865.jpg
 
-I have fixed the calculator to able to work with multiple operators by using switch cases and swapped from two variables to one exp variable, which is calculated using the calculate function and the calculateHelper function which pushes variables back to the calculate function etc.
-I also simplified the code by using the exp variable.
-I have also prevented an operator to be printed as the first character.
+The minimum dimensions for this website are 250 width x 600 height.
+This is well below the iPhone 11 Pro at 375x812 and the Galaxy S10 at 360x760.
 
-I have now fixed the negative number issue.
+The calculator now works with negative numbers, multiple variables and operators, and decimal places (including multiple decimals across variables). The AC(clear) and backspace buttons are also functional.
 
 Some things to work on before my portfolio is sent out:
 

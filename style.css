@@ -74,22 +74,25 @@ input:active {
 .calculator__box--result:hover {
   background-color: lightgray;
 }
-.calculator__box--equals, .calculator__box--clear {
+.calculator__box--equals {
   width: 320px;
   background-color: #b85167;
 }
 @media only screen and (max-width: 350px) {
-  .calculator__box--equals, .calculator__box--clear {
+  .calculator__box--equals {
     width: 110px;
   }
 }
 @media only screen and (min-width: 350px) and (max-width: 500px) {
-  .calculator__box--equals, .calculator__box--clear {
+  .calculator__box--equals {
     width: 150px;
   }
 }
 @media only screen and (min-width: 500px) and (max-width: 700px) {
-  .calculator__box--equals, .calculator__box--clear {
+  .calculator__box--equals {
     width: 225px;
   }
+}
+.calculator__box--clear {
+  background-color: #b85167;
 }

@@ -44,19 +44,27 @@ operatorButton.forEach((button) => {
 //The decimal point button adds a decimal point to the current string.
 //This button does nothing if last character of the current string is an operation or a decimal point.
 buttonDec.addEventListener("click", () => {
-    if (exp == "") {
-        exp += ".";
-    } else {
-        for (let i = exp.length; i > 0; i--) {
-            if (exp[i] == "/" || "*" || "+" || "-") {
-                exp += ".";
+    let decAllowed = true;
+    let variableStartReached = false;
+    let length = exp.length;
+    while (decAllowed == true && variableStartReached == false && length > -1) {
+        //breaks
+        switch (exp[length--]) {
+            case "+":
+            case "-":
+            case "/":
+            case "*":
+                variableStartReached = true; //
                 break;
-            }
-
-            if (exp[i] == ".") {
+            case ".":
+                decAllowed = false;
                 break;
-            }
+            default:
+                break;
         }
+    }
+    if (decAllowed) {
+        exp += ".";
     }
     document.getElementById("input").innerHTML = exp;
 });
@@ -66,6 +74,7 @@ buttonDec.addEventListener("click", () => {
 const calculateFunction = (string) => {
     let i = string.search(/[\+\-]/);
     if (i > -1) {
+        //i.e. if
         string = calculateFunctionHelper(
             string.substr(0, i),
             string.charAt(i),

@@ -64,8 +64,7 @@ input {
                 background-color: palette.$input-hover-colour;
             }
         }
-        &--equals,
-        &--clear {
+        &--equals {
             width: 320px;
             background-color: palette.$primary-colour;
             @include devices.phone-s {
@@ -77,6 +76,9 @@ input {
             @include devices.tablet {
                 width: 225px;
             }
+        }
+        &--clear {
+            background-color: palette.$primary-colour;
         }
     }
 }

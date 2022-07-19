@@ -3,114 +3,153 @@ const inputElement = document.getElementById("button--result");
 const buttonEquals = document.getElementById("button--equals");
 const buttonClr = document.getElementById("button--clear");
 const buttonDec = document.getElementById("button--dec");
-
-const addTextNodeToInput = (textNode) => {
-    inputElement.textContent += textNode;
-};
+const buttonNegMinus = document.getElementById("button--negNumber");
 
 const numberButton = document.querySelectorAll(".number");
 const operatorButton = document.querySelectorAll(".operator");
 const buttons = document.querySelectorAll(".button");
 
-//defining variables
-let variable1 = "";
-let variable2 = "";
-let variable3 = "";
-let operator = "";
+let exp = "";
 
 numberButton.forEach((button) => {
     button.addEventListener("click", () => {
-        if (operator === "") {
-            variable1 += button.value;
-        } else {
-            variable2 += button.value;
-        }
+        exp += button.value;
     });
 });
-let variable4 = variable1 + operator + variable2;
+
+buttonNegMinus.addEventListener("click", () => {
+    if (exp === "") {
+        exp += "-";
+    } else {
+        switch (exp[exp.length - 1]) {
+            case "/":
+            case "*":
+            case "+":
+                exp += "-";
+                break;
+            default:
+                break;
+        }
+    }
+});
 
 operatorButton.forEach((button) => {
     button.addEventListener("click", () => {
-        if (variable2) {
-            variable1 = variable1 + operator + variable2;
-            operator = variable2 = "";
-        }
-        if (operator === "") {
-            operator = button.value;
+        if (exp === "") {
+            exp;
+        } else {
+            switch (exp.charAt(exp.length - 1)) {
+                case "+":
+                case "-":
+                case "/":
+                case "*":
+                case ".":
+                    break;
+                default:
+                    exp += button.value;
+            }
         }
     });
 });
 
 buttonDec.addEventListener("click", () => {
-    if (operator == "" && !variable1.includes(".")) {
-        variable1 += buttonDec.value;
-        document.getElementById("input").innerHTML =
-            variable1 + operator + variable2;
-    } else if (operator !== "" && !variable2.includes(".")) {
-        variable2 += buttonDec.value;
-        document.getElementById("input").innerHTML =
-            variable1 + operator + variable2;
-    } else {
-        document.getElementById("input").innerHTML =
-            variable1 + operator + variable2;
+    let decAllowed = true;
+    let variableStartReached = false;
+    let lengthIterator = exp.length;
+    while (
+        decAllowed === true &&
+        variableStartReached === false &&
+        lengthIterator >= 0
+    ) {
+        switch (exp[lengthIterator--]) {
+            case "+":
+            case "-":
+            case "/":
+            case "*":
+                variableStartReached = true; //
+                break;
+            case ".":
+                decAllowed = false;
+                break;
+            default:
+                break;
+        }
     }
+    if (decAllowed) {
+        exp += ".";
+    }
+    document.getElementById("input").innerHTML = exp;
 });
 
-//function that toggles operator from + to - to * to / to + when clicked
+const calculate = (string) => {
+    i = string.search(/[\*\/]/);
+    if (i > 0) {
+        string = calculateHelper(
+            string.substr(0, i),
+            string.charAt(i),
+            string.substr(i + 1)
+        );
+    }
 
-//enacting the operator toggling function and refreshing the display
+    i = string.search(/[\+\-]/);
+    if (i === 0) {
+        i = string.substr(1).search(/[\+\-]/) + 1;
+    }
+    if (i > 0) {
+        string = calculateHelper(
+            string.substr(0, i),
+            string[i],
+            string.substr(i + 1)
+        );
+    }
+    if (i === 0) {
+        i = string.substr(i + 1).search(/[\*\/]/) + 1;
+    }
+    return string;
+};
 
-const calculateFunction = (a, b, o) => {
+const calculateHelper = (a, o, b) => {
     switch (o) {
-        case "-":
-            return parseFloat(a) - parseFloat(b);
-            break;
-        case "+":
-            return parseFloat(a) + parseFloat(b);
-            break;
         case "*":
-            return parseFloat(a) * parseFloat(b);
-            break;
+            return "" + parseFloat(calculate(a)) * parseFloat(calculate(b));
         case "/":
-            return a / b;
+            if (b == 0) {
+                return "ERROR!";
+            } else {
+                return "" + parseFloat(calculate(a)) / parseFloat(calculate(b));
+            }
+        case "+":
+            return "" + (parseFloat(calculate(a)) + parseFloat(calculate(b)));
+        case "-":
+            return "" + (parseFloat(calculate(a)) - parseFloat(calculate(b)));
+        default:
+            return "";
     }
 };
 
 buttonEquals.addEventListener("click", () => {
-    let variable3 = calculateFunction(variable1, variable2, operator);
-    if (variable2 !== "") {
-        document.getElementById("input").innerHTML = variable3;
-        variable1 = "";
-        variable1 += variable3;
-        //if variable2 exists, print variable3.
+    switch (exp.charAt(exp.length - 1)) {
+        case "+":
+        case "-":
+        case "/":
+        case "*":
+        case ".":
+            break;
+        default:
+            exp = calculate(exp);
     }
-    variable2 = operator = variable3 = "";
-    //clearing all variables except variable1
 });
 
 buttonClr.addEventListener("click", () => {
-    variable1 = variable2 = variable3 = operator = "";
-    document.getElementById("input").innerHTML = "";
-    //clears all output and unassigns all variables
+    exp = "";
 });
 
 buttonBsp.addEventListener("click", () => {
-    if (operator === "") {
-        variable1 = variable1.substring(0, variable1.length - 1);
-        //backspacing variable1 if no operator (and therefore no variable2)
-    } else if (variable2 === "") {
-        operator = "";
-        //removing operator if backspacing while operator exists but no variable2
-    } else {
-        variable2 = variable2.substring(0, variable2.length - 1);
-        //backspacing variable2 if variable2 exists
-    }
+    exp = exp.substring(0, exp.length - 1);
 });
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        document.getElementById("input").innerHTML =
-            variable1 + operator + variable2;
+        document.getElementById("input").innerHTML = exp;
     });
 });
-//refreshes display every time any button EXCEPT decimal button is clicked.
